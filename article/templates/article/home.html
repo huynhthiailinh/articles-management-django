@@ -1,0 +1,20 @@
+{% extends 'article/base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <h3><a href="#" class="article-title">{{ post.title }}</a></h3>
+                    <div class="date-time">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <small class="text-muted">{{ post.date_posted }}</small>
+                    </div>
+                </div>
+                <p class="article-content">{{ post.content }}</p>
+                <div>
+                    <a href="#" class="mr-2">{{ post.author }}</a>
+                </div>
+            </div>
+        </article> 
+    {% endfor%}
+{% endblock content %}
