@@ -64,8 +64,8 @@ i {
 }
 
 .article-img {
-    height: 65px;
-    width: 65px;
+    height: 40px;
+    width: 40px;
     margin-right: 16px;
 }
 
@@ -108,4 +108,10 @@ i {
 .text-muted {
     font-family: 'Mali', cursive;
     color: #9e9e9e;
+}
+
+.author-name {
+    text-decoration: none;
+    color: rgba(var(--bs-body-color-rgb),.75)!important;
+    font-family: 'Mali', cursive;
 }

@@ -11,9 +11,9 @@
                     </div>
                 </div>
                 <p class="article-content">{{ post.content }}</p>
-                <div>
+                <div class="hstack gap-2">
+                    <a href="#" class="ms-auto author-name">{{ post.author }}</a>
                     <img class="rounded-circle article-img" src="{{ post.author.profile.avatar.url }}" alt="">
-                    <a href="#" class="mr-2">{{ post.author }}</a>
                 </div>
             </div>
         </article> 
