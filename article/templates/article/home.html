@@ -7,7 +7,7 @@
                     <h3><a href="#" class="article-title">{{ post.title }}</a></h3>
                     <div class="date-time">
                         <i class="fa-solid fa-calendar-days"></i>
-                        <small class="text-muted">{{ post.date_posted }}</small>
+                        <small class="text-muted">{{ post.date_posted | date:"F d, Y" }}</small>
                     </div>
                 </div>
                 <p class="article-content">{{ post.content }}</p>
