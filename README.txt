@@ -6,3 +6,5 @@ Username: truongminhduc
 Password: pythondjango
 
 pip install django-cripsy-forms
+
+pip install Pillow
