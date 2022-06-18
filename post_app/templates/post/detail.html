@@ -17,7 +17,7 @@
             </div>
             <p class="article-content">{{ object.content }}</p>
             <div class="hstack gap-2">
-                <a href="#" class="ms-auto author-name">{{ object.author }}</a>
+                <a href="{% url 'user-posts' object.author.username %}" class="ms-auto author-name">{{ object.author }}</a>
                 <img class="rounded-circle article-img" src="{{ object.author.profile.avatar.url }}" alt="">
             </div>
         </div>
