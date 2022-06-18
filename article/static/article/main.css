@@ -31,6 +31,7 @@ i {
 .site-header .navbar-nav .nav-link {
     color: #000;
     font-family: 'Coming Soon', cursive;
+    display: inline;
 }
 
 .site-header .navbar-nav .nav-link:hover {
@@ -102,8 +103,8 @@ i {
 }
 
 .avatar-img {
-    height: 25px;
-    width: 25px;
+    height: 40px;
+    width: 40px;
 }
 
 .account-heading {
@@ -119,4 +120,22 @@ i {
     text-decoration: none;
     color: rgba(var(--bs-body-color-rgb),.75)!important;
     font-family: 'Mali', cursive;
+}
+
+.btn:hover, .btn-check:active+.btn, .btn-check:checked+.btn, .btn.active, .btn.show, .btn.active, .btn:focus {
+    border: none;
+}
+
+.dropdown-menu {
+    border: 2px dashed #1155cc;
+}
+
+.dropdown-item {
+    color: #000;
+    font-family: 'Mali', cursive;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    background: none;
+    font-weight: bold;
 }
