@@ -4,7 +4,7 @@
         <article class="media content-section">
             <div class="media-body">
                 <div class="article-metadata">
-                    <h3><a href="{% url 'article-detail' post.id %}" class="article-title">{{ post.title }}</a></h3>
+                    <h4><a href="{% url 'article-detail' post.id %}" class="article-title">{{ post.title }}</a></h4>
                     <div class="date-time">
                         <i class="fa-solid fa-calendar-days"></i>
                         <small class="text-muted">{{ post.date_posted | date:"F d, Y" }}</small>
