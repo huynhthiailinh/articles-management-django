@@ -1,22 +1,27 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-{% block content %}
+{% block post_content %}
 <div class="content-section">
     <form action="" method="post">
         {% csrf_token %}
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Log In</legend>
+            <legend class="border-bottom mb-4">Đăng nhập</legend>
             {{ form|crispy }}
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Login</button>
+            <button class="btn btn-outline-info" type="submit">Đăng nhập</button>
             <small class="text-muted ml-2">
-                <a href="{% url 'password_reset' %}">Forgot password?</a>
+                <a href="{% url 'password_reset' %}">Quên mật khẩu?</a>
             </small>
         </div>
     </form>
     <div class="border-top pt-3">
-        <small class="text-muted">Need An Account? <a href="{% url 'register' %}" class="ml-2">Sign Up Now</a></small>
+        <small class="text-muted">
+            Chưa có tài khoản?
+            <a href="{% url 'register' %}" class="ml-2">
+                Đăng ký
+            </a>
+        </small>
     </div>
 </div>
-{% endblock content %}
+{% endblock post_content %}

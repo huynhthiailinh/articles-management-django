@@ -56,10 +56,14 @@ class TopicPostListView(ListView):
         context['selected_topic'] = selected_topic
         return context
 
-
 class PostDetailView(DetailView):
     model = Post
     template_name = 'post/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PostDetailView, self).get_context_data(**kwargs)
+        context['topics'] = Topic.objects.all()
+        return context
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
@@ -70,10 +74,16 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        context = super(PostCreateView).get_context_data(**kwargs)
+        context['status'] = 'create'
+        context['topics'] = Topic.objects.all()
+        return context
+
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     template_name = 'post/form.html'
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'topic']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -84,6 +94,13 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True
         return False
+
+    def get_context_data(self, **kwargs):
+        context = super(PostUpdateView).get_context_data(**kwargs)
+        context['status'] = 'update'
+        context['topics'] = Topic.objects.all()
+        return context
+    
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
@@ -96,14 +113,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
-# def mine(request):
-#     return render(request, 'article/mine.html', {'title':'My Articles'})
-
-@login_required
-def mine(request):
-    context = {
-        'posts': Post.objects.all()
-        # 'u_posts': Post.objects.filter(author=request.user).all(),
-        # 'p_posts': Post.objects.filter(author=request.user.profile).all()
-    }
-    return render(request, 'post/mine.html', {'title':'My Articles'})
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['topics'] = Topic.objects.all()
+        return context

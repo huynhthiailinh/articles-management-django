@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-{% block content %}
+{% block post_content %}
 <div class="content-section">
     <div class="media">
         <img src="{{ user.profile.avatar.url }}" alt="" class="rounded-circle account-img">
@@ -12,13 +12,13 @@
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Profile Info</legend>
+            <legend class="border-bottom mb-4">Thông tin tài khoản</legend>
             {{ u_form|crispy }}
             {{ p_form|crispy }}
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Update</button>
+            <button class="btn btn-outline-info" type="submit">Sửa</button>
         </div>
     </form>
 </div>
-{% endblock content %}
+{% endblock post_content %}

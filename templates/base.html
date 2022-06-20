@@ -2,18 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% if title %}
-    <title>Django Article - {{ title }}</title>
-    {% else %}
-    <title>Django Article</title>
-    {% endif %}
+    <title>BK's news</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'article/main.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mali&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -30,8 +25,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
-                        <a href="{% url 'my-posts' %}" class="nav-item nav-link">My Articles</a>
+                        <a href="{% url 'home' %}" class="nav-item nav-link">Trang chủ</a>
+                        <a href="#" class="nav-item nav-link">Bài của tôi</a>
                     </div>
                     {% comment %} Navbar Right Side {% endcomment %}
                     <div class="navbar-nav">
@@ -42,14 +37,14 @@
                                     <img src="{{ user.profile.avatar.url }}" alt="" class="rounded-circle avatar-img">
                                 </div>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
-                                <li><a class="dropdown-item" href="{% url 'post-create' %}">Create Post</a></li>
-                                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                                <li><a class="dropdown-item" href="{% url 'profile' %}">Hồ sơ</a></li>
+                                <li><a class="dropdown-item" href="{% url 'post-create' %}">Đăng bài</a></li>
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">Đăng xuất</a></li>
                                 </ul>
                             </div>
                         {% else %}
-                            <a href="{% url 'login' %}" class="nav-item nav-link">Login</a>
-                            <a href="{% url 'register' %}" class="nav-item nav-link">Register</a>
+                            <a href="{% url 'login' %}" class="nav-item nav-link">Đăng nhập</a>
+                            <a href="{% url 'register' %}" class="nav-item nav-link">Đăng ký</a>
                         {% endif %}
                     </div>
                 </div>
