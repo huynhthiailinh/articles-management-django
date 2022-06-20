@@ -9,37 +9,51 @@
     <link rel="stylesheet" type="text/css" href="{% static 'article/main.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mali&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+    <header>
+        <nav class="navbar navbar-expand-md fixed-top">
             <div class="container">
                 <a href="{% url 'home' %}" class="navbar-brand mr-4">
-                    <img id="logo" src="{% static 'logo.jpg' %}" alt="">
+                    <img id="logo" src="{% static 'logo.jpg' %}" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarToggle">
-                    <div class="navbar-nav mr-auto">
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-nav">
                         <a href="{% url 'home' %}" class="nav-item nav-link">Trang chủ</a>
                         <a href="#" class="nav-item nav-link">Bài của tôi</a>
                     </div>
-                    {% comment %} Navbar Right Side {% endcomment %}
                     <div class="navbar-nav">
                         {% if user.is_authenticated %}
-                            <div class="dropdown">
-                                <div class="nav-item" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="nav-item nav-link">{{ user.username }}</span>
-                                    <img src="{{ user.profile.avatar.url }}" alt="" class="rounded-circle avatar-img">
+                            <div class="dropdown nav-item nav-link">
+                                <div type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span>{{ user.username }}</span>
+                                    <img src="{{ user.profile.avatar.url }}" alt="avatar" class="rounded-circle navbar-avatar-img">
                                 </div>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="{% url 'profile' %}">Hồ sơ</a></li>
-                                <li><a class="dropdown-item" href="{% url 'post-create' %}">Đăng bài</a></li>
-                                <li><a class="dropdown-item" href="{% url 'logout' %}">Đăng xuất</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'profile' %}">
+                                            <i class="fa-solid fa-user"></i>
+                                            Hồ sơ
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'post-create' %}">
+                                            <i class="fa-solid fa-file-circle-plus"></i>
+                                            Đăng bài
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'logout' %}">
+                                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                            Đăng xuất
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         {% else %}

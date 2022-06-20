@@ -75,7 +75,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
-        context = super(PostCreateView).get_context_data(**kwargs)
+        context = super(PostCreateView, self).get_context_data(**kwargs)
         context['status'] = 'create'
         context['topics'] = Topic.objects.all()
         return context
@@ -96,7 +96,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return False
 
     def get_context_data(self, **kwargs):
-        context = super(PostUpdateView).get_context_data(**kwargs)
+        context = super(PostUpdateView, self).get_context_data(**kwargs)
         context['status'] = 'update'
         context['topics'] = Topic.objects.all()
         return context
