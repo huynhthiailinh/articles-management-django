@@ -22,7 +22,7 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
-                <a href="{% url 'post-home' %}" class="navbar-brand mr-4">
+                <a href="{% url 'home' %}" class="navbar-brand mr-4">
                     <img id="logo" src="{% static 'logo.jpg' %}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse">
@@ -30,7 +30,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <a href="{% url 'post-home' %}" class="nav-item nav-link">Home</a>
+                        <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
                         <a href="{% url 'my-posts' %}" class="nav-item nav-link">My Articles</a>
                     </div>
                     {% comment %} Navbar Right Side {% endcomment %}
@@ -66,19 +66,12 @@
                         </div>
                     {% endfor %}
                 {% endif%}
-                {% block content %}{% endblock %}
+                {% block post_content %}{% endblock %}
             </div>
             <div class="col-md-4">
                 <div class="content-section">
-                    <h3>Our Sidebar</h3>
-                    <p class="text-muted">You can put any information here you'd like.
-                        <ul class="list-group">
-                            <li class="list-group-item list-group-item-light">Latest Posts</li>
-                            <li class="list-group-item list-group-item-light">Annoucements</li>
-                            <li class="list-group-item list-group-item-light">Calendars</li>
-                            <li class="list-group-item list-group-item-light">etc</li>
-                        </ul>
-                    </p>
+                    <h3>Chủ đề</h3>
+                    {% block topic_content %}{% endblock %}
                 </div>
             </div>
         </div>

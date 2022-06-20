@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% block content %}
+
+{% block post_content %}
     {% for post in posts %}
         <article class="media content-section">
             <div class="media-body">
@@ -10,7 +11,7 @@
                         <small class="text-muted">{{ post.date_posted | date:"F d, Y" }}</small>
                     </div>
                 </div>
-                <p class="article-content">{{ post.content }}</p>
+                <p class="article-content truncate-content">{{ post.content }}</p>
                 <div class="hstack gap-2">
                     <a href="{% url 'user-posts' post.author.username %}" class="ms-auto author-name">{{ post.author }}</a>
                     <img class="rounded-circle article-img" src="{{ post.author.profile.avatar.url }}" alt="">
@@ -39,4 +40,10 @@
         {% endif%}
 
     {% endif%}
-{% endblock content %}
+{% endblock post_content %}
+
+{% block topic_content %}
+    {% for topic in topics %}
+        {{ topic.name }}
+    {% endfor%}
+{% endblock topic_content %}

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block post_content %}
-    <h1 class="mb-3">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+    <h1 class="mb-3">Posts for {{ selected_topic.name }} ({{ page_obj.paginator.count }})</h1>
     {% for post in posts %}
         <article class="media content-section">
             <div class="media-body">
@@ -12,6 +12,10 @@
                     </div>
                 </div>
                 <p class="article-content truncate-content">{{ post.content }}</p>
+                <div class="hstack gap-2">
+                    <a href="{% url 'user-posts' post.author.username %}" class="ms-auto author-name">{{ post.author }}</a>
+                    <img class="rounded-circle article-img" src="{{ post.author.profile.avatar.url }}" alt="">
+                </div>
             </div>
         </article> 
     {% endfor%}
