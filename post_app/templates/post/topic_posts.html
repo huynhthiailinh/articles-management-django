@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block post_content %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'article/home.css' %}">
+    </head>
+
     <h1 class="mb-3">Các bài đăng về {{ selected_topic.name }} ({{ page_obj.paginator.count }})</h1>
     {% for post in posts %}
     <article>

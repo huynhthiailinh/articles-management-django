@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block post_content %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'article/home.css' %}">
+    </head>
     <article class="media content-section">
         <div class="media-body">
             <div class="article-metadata">
