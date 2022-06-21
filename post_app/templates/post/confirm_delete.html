@@ -16,7 +16,5 @@
 {% endblock post_content %}
 
 {% block topic_content %}
-    {% for topic in topics %}
-        {{ topic.name }}
-    {% endfor%}
+    {% include 'topic/topic_sidebar.html' %}
 {% endblock topic_content %}
