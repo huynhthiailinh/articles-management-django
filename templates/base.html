@@ -61,7 +61,7 @@
                                 <a href="{% url 'login' %}" class="nav-item nav-link text-login">Đăng nhập</a>
                             </button>
                             <button type="button" class="btn btn-success">
-                                <a href="{% url 'login' %}" class="nav-item nav-link text-signup">Đăng nhập</a>
+                                <a href="{% url 'register' %}" class="nav-item nav-link text-signup">Đăng ký</a>
                             </button>
                         {% endif %}
                     </div>
@@ -82,10 +82,7 @@
                 {% block post_content %}{% endblock %}
             </div>
             <div class="col-md-4">
-                <div class="content-section border p-3 rounded">
-                    <h3>Chủ đề</h3>
-                    {% block topic_content %}{% endblock %}
-                </div>
+                {% block topic_content %}{% endblock %}
             </div>
         </div>
     </main>
