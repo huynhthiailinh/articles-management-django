@@ -6,50 +6,49 @@
     </head>
     <article>
         <header>
-            <h2>
+            <div class="mb-4">
+                <img
+                    class="col"
+                    src="{{ post.image.url }}"
+                    alt="image"
+                >
+            </div>
+
+            <h4>
                 <a href="{% url 'post-detail' post.id %}" class="post-title">
                     {{ post.title }}
                 </a>
-            </h2>
-            
-            {% if object.author == user %}
-            <div>
-                <a class='btn btn-secondary btn-sm mt-1 mb-1' href="{% url 'post-update' object.id %}">Sửa</a>
-                <a class='btn btn-danger btn-sm mt-1 mb-1' href="{% url 'post-delete' object.id %}">Xóa</a>
-            </div>
-            {% endif %}
+            </h4>
 
-            <div class="entry-meta">
-                <span>
-                    <i class="fa-solid fa-calendar-days"></i>
-                    {{ post.date_posted | date:"F d, Y" }}
-                </span>
-                <span>
-                    <i class="fa-solid fa-folder-open"></i>
-                    {{ post.topic.name }}
-                </span>
-                <span>
-                    <img class="rounded-circle account-img" src="{{ post.author.profile.avatar.url }}" alt="account-image">
-                    <a href="{% url 'user-posts' post.author.username %}" class="ms-auto">{{ post.author }}</a>
-                </span>
+            <div class="row align-items-center">
+                <div class="entry-meta col-9">
+                    <span>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        {{ post.date_posted | date:"F d, Y" }}
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-folder-open"></i>
+                        {{ post.topic.name }}
+                    </span>
+                    <span>
+                        <img class="rounded-circle account-img" src="{{ post.author.profile.avatar.url }}" alt="account-image">
+                        <a href="{% url 'user-posts' post.author.username %}" class="ms-auto">{{ post.author }}</a>
+                    </span>
+                </div>
+                {% if object.author == user %}
+                    <div class="col-3 d-flex justify-content-end">
+                        <a class='btn btn-secondary btn-sm mt-1 mb-1 mx-1' href="{% url 'post-update' object.id %}">Sửa</a>
+                        <a class='btn btn-danger btn-sm mt-1 mb-1 mx-1' href="{% url 'post-delete' object.id %}">Xóa</a>
+                    </div>
+                {% endif %}
             </div>
         </header>
         <div class="entry-content row">
-            <img
-                class="col-sm-6"
-                src="{{ post.image.url }}"
-                alt="image">
-            <div class="col-sm-6">
-                <p class="post-content truncate-content">
+            <div class="col">
+                <p class="post-content">
                     {{ post.content }}
                 </p>
             </div>
-            <p>
-                <a href="{% url 'post-detail' post.id %}" class="read-more">
-                    Tiếp tục đọc
-                    <i class="fa fa-chevron-right"></i>
-                </a>
-            </p>
         </div>
         <hr class="section-divider">
     </article>
