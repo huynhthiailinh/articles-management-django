@@ -1,3 +1,8 @@
+a,
+a:hover {
+    text-decoration: none;
+}
+
 article {
     margin-bottom: 20px;
 }
