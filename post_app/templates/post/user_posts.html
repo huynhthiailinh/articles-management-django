@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block post_content %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'article/home.css' %}">
+</head>
     <h1 class="mb-3">Các bài viết của {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
     {% for post in posts %}
     <article>
@@ -27,24 +31,22 @@
         <div class="entry-content row">
             <img
                 class="col-sm-6"
-                src="https://colorlibhub.com/dazzling/wp-content/uploads/sites/54/2012/01/54-730x410.jpg"
-                alt="image"
-            >
+                src="{{ post.image.url }}"
+                alt="image">
             <div class="col-sm-6">
                 <p class="post-content truncate-content">
                     {{ post.content }}
                 </p>
             </div>
             <p>
-                <a
-                    href="{% url 'post-detail' post.id %}"
-                    class="read-more"
-                >
+                <a href="{% url 'post-detail' post.id %}" class="read-more">
                     Tiếp tục đọc
                     <i class="fa fa-chevron-right"></i>
                 </a>
             </p>
         </div>
+        <hr class="section-divider">
+    </article>
         <hr class="section-divider">
     </article>
     {% endfor%}
@@ -72,7 +74,5 @@
 {% endblock post_content %}
 
 {% block topic_content %}
-    {% for topic in topics %}
-        {{ topic.name }}
-    {% endfor%}
+    {% include 'topic/topic_sidebar.html' %}
 {% endblock topic_content %}
