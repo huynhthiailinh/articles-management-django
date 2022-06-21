@@ -79,8 +79,6 @@
     {% endif%}
     {% endblock post_content %}
 
-    {% block topic_content %}
-    {% for topic in topics %}
-    {{ topic.name }}
-    {% endfor%}
-    {% endblock topic_content %}
+{% block topic_content %}
+    {% include 'topic/topic_sidebar.html' %}
+{% endblock topic_content %}

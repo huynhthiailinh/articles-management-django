@@ -116,3 +116,11 @@ article header {
     color: #000;
 }
 
+.topic-link div {
+    color: #1fa67a;
+}
+
+.topic-link:hover div {
+    color: #000 !important;
+}
+
