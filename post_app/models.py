@@ -15,7 +15,7 @@ class Post(models.Model):
     content = RichTextField(blank=True, null=True)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='default.jpg', upload_to='post_pics')
+    image = models.ImageField(default='post_default.jpg', upload_to='post_pics')
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE, null=True, blank=False)
 
     def __str__(self):
