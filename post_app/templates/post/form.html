@@ -10,6 +10,7 @@
                     Tạo bài đăng mới
                 {% endif %}
             </legend>
+            {{ form.media }}
             {{ form|crispy }}
         </fieldset>
         <div class="form-group">
@@ -18,7 +19,3 @@
     </form>
 </div>
 {% endblock post_content %}
-
-{% block topic_content %}
-    {% include 'topic/topic_sidebar.html' %}
-{% endblock topic_content %}
