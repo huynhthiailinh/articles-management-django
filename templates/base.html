@@ -24,7 +24,9 @@
                 <div class="collapse navbar-collapse">
                     <div class="navbar-nav">
                         <a href="{% url 'home' %}" class="nav-item nav-link fs-5 fw-bold">Trang chủ</a>
+                        {% if user.is_authenticated %}
                         <a href="{% url 'mine' %}" class="nav-item nav-link fs-5 fw-bold">Bài của tôi</a>
+                        {% endif %}
                     </div>
                     <div class="navbar-nav">
                         {% if user.is_authenticated %}
