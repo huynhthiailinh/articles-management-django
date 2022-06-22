@@ -20,6 +20,24 @@ class HomeListView(ListView):
         
         return context
 
+class MyPostListView(ListView):
+    model = Post
+    template_name = 'post/my_posts.html'
+    context_object_name = 'posts'
+    paginate_by = 5
+
+    def get_queryset(self):
+        user = self.request.user
+        return Post.objects.filter(author=user).order_by('-date_posted')
+
+    def get_context_data(self, **kwargs):
+        user = self.request.user
+        context = super(MyPostListView, self).get_context_data(**kwargs)
+
+        context['posts'] = Post.objects.filter(author=user).order_by('-date_posted')
+        context['topics'] = Topic.objects.all()
+        return context
+
 class UserPostListView(ListView):
     model = Post
     template_name = 'post/user_posts.html'
