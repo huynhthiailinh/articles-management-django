@@ -14,6 +14,7 @@ article header {
 
 .post-title {
     color: #444;
+    font-size: 1.6rem;
 }
 
 .post-title:hover {
@@ -38,34 +39,38 @@ article header {
     border: #cc0000;
 }
 
-.truncate-content {
+.truncate-content p:first-child {
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-bottom: 0;
+    text-align: justify;
+}
+
+.truncate-content p:not(:first-child) {
+    display: none;
 }
 
 .entry-content {
+    display: flex;
+    flex-direction: row;
     margin-top: 20px;
 }
 
 .post-content {
-    white-space: pre-line;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
-    
 }
 
-.read-more {
-    float: right;
-    border: 1px solid #e8e8e8;
-    color: #33a415;
-    background-color: transparent;
-    margin-top: 10px;
-    padding: 6px 12px;
+.post-content > * {
+    margin-bottom: 0;
 }
 
 .article-metadata a {

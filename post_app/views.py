@@ -17,6 +17,7 @@ class HomeListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(HomeListView, self).get_context_data(**kwargs)
         context['topics'] = Topic.objects.all()
+        
         return context
 
 class UserPostListView(ListView):

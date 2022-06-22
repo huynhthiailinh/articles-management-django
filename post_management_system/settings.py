@@ -129,6 +129,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'media/shared/'),
     os.path.join(BASE_DIR,'post_management_system/static/'),
+    os.path.join(BASE_DIR,'user_app/static/'),
 )
 
 # Default primary key field type
