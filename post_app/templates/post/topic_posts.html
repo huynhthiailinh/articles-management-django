@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="{% static 'article/home.css' %}">
     </head>
 
-    <h1 class="mb-3">Các bài đăng về {{ selected_topic.name }} ({{ page_obj.paginator.count }})</h1>
+    <h3 class="mb-3">Các bài đăng về {{ selected_topic.name }} ({{ page_obj.paginator.count }})</h3>
     {% for post in posts %}
     <article>
         <header>
@@ -29,26 +29,20 @@
                 </span>
             </div>
         </header>
-        <div class="entry-content row">
-            <img
-                class="col-sm-6"
-                src="https://colorlibhub.com/dazzling/wp-content/uploads/sites/54/2012/01/54-730x410.jpg"
-                alt="image"
-            >
-            <div class="col-sm-6">
-                <p class="post-content truncate-content">
-                    {{ post.content }}
+        <div class="entry-content">
+            <img class="col-sm-4" src="{{ post.image.url }}" alt="image">
+            <div class="post-content">
+                <div class="truncate-content">
+                    {{ post.content|safe }}
+                </div>
+                <p>
+                    <button type="button" class="btn btn-light">
+                        <a href="{% url 'post-detail' post.id %}">
+                            Tiếp tục đọc
+                        </a>
+                    </button>
                 </p>
             </div>
-            <p>
-                <a
-                    href="{% url 'post-detail' post.id %}"
-                    class="read-more"
-                >
-                    Tiếp tục đọc
-                    <i class="fa fa-chevron-right"></i>
-                </a>
-            </p>
         </div>
         <hr class="section-divider">
     </article>
